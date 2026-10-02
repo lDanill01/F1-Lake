@@ -21,6 +21,9 @@ class CollectResults:
         return pd.DataFrame()
         
       session._load_drivers_results()
+      df = session.results
+      df['mode'] = mode
+      
       return session.results
   
   def save_data(self, df, year, gp, mode):
@@ -34,14 +37,15 @@ class CollectResults:
     self.save_data(df,year, gp, mode)
     return True
   
-  def process_year_mode(self, year, mode):
+  def process_year_modes(self, year, mode):
     for i in range(1,50):
-      if  not self.process(year, i, mode):
-        break
+      for mode in self.modes:
+        if  not self.process(year, i, mode) and mode == 'R':
+          break
     
 #%%
 collect = CollectResults([2021, 2022], ['R'])
-collect.process_year_mode(2021,'R')    
+collect.process_year_mode(2021,'R')
 
-
-# %%
+#%%
+collect.process(2025, 2, 'S')
