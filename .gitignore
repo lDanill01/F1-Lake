@@ -1,3 +1,7 @@
 /venv
 .venv
 /test
+/data
+/cache
+__pycache__/
+*.pyc
