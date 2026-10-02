@@ -9,7 +9,7 @@ from pathlib import Path
 import fastf1
 
 # --------------------------------------------------------------- Configuracao
-START_YEAR = 1980
+START_YEAR = 1990
 END_YEAR = 2026
 MODES = ["R"]  # R = corrida. Para incluir Sprints (2021+) use ["R", "S"].
 
